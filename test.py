@@ -42,7 +42,7 @@ def get_chain():
     return LLMChain(llm=get_llm(), prompt=get_summary_prompt_template())
 
 
-if __name__ == "__main__":
+def main() -> None:
     # Load env variables
     load_dotenv()
 
@@ -52,3 +52,7 @@ if __name__ == "__main__":
     # Run
     res = chain.invoke(input={"database_info": get_database_info()})
     print(res['text'])
+
+
+if __name__ == "__main__":
+    main()
